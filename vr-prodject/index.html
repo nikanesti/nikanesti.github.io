@@ -1,0 +1,1086 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Очки виртуальной реальности</title>
+  <link rel="stylesheet" href="./css/preloader.css">
+  <script src="./js/jquery-3.js"></script>
+  <script src="./js/plugin.js"></script>
+  <script src="./js/scriptPreloader.js"></script>
+
+  <style>
+    html {
+      font-size: 10px
+    }
+
+    body {
+      font-family: 'HelveticaNeueCyr_roman', sans-serif;
+    }
+
+    a:hover {
+      text-decoration: none
+    }
+
+    main,
+    section {
+      padding: 9rem 0;
+      overflow: hidden;
+    }
+
+    button:focus,
+    input:focus,
+    a:focus,
+    textarea:focus {
+      outline: none
+    }
+
+    .header {
+      font-family: 'HelveticaNeueCyr_Black', sans-serif;
+      font-size: 3.5rem
+    }
+
+    .main {
+      position: relative;
+      background-color: rgb(0, 0, 0);
+      background-position-x: center;
+      background-position-y: center;
+      background-repeat: no-repeat;
+      background-attachment: scroll;
+      background-size: cover;
+      background-image: url("img/main-bg.jpg");
+      padding: 0;
+      padding-bottom: 4rem;
+    }
+
+    .main-header {
+      background-color: rgba(0, 0, 0, 0.5)
+    }
+
+    .main-header_2 {
+      background-color: #000
+    }
+
+    .main-header-block {
+      color: #fff
+    }
+
+    .main-header-logo {
+      padding: 1.5rem 0
+    }
+
+    .main-header-logo img {
+      vertical-align: middle;
+      max-height: 100%
+    }
+
+    .main-header-logo h4 {
+      padding-left: 1.6rem;
+      vertical-align: middle;
+      font-size: 2rem;
+      display: inline-block
+    }
+
+    .main-header-contact {
+      padding: 1.5rem 0;
+      font-family: 'HelveticaNeueCyr_bold', sans-serif;
+      font-size: 2.5rem
+    }
+
+    .main-header-contact a {
+      display: block;
+      font-size: 2rem;
+      text-decoration: none;
+      color: #87b929
+    }
+
+    .main-wrapper {
+      margin-top: 10rem
+    }
+
+    .main-content {
+      position: relative
+    }
+
+    .main-title {
+      color: #fff;
+      font-size: 3.7rem;
+      margin-bottom: 3rem;
+      font-family: 'HelveticaNeueCyr_bold', sans-serif;
+      text-shadow: 1px 3px 0 #272b25
+    }
+
+    .main-title span {
+      text-shadow: none;
+      display: block;
+      margin-top: 1rem;
+      font-size: 3rem;
+      margin-bottom: 2.4rem
+    }
+
+    .main-img_item-1 {
+      margin-left: -2.2rem;
+      display: block;
+      margin-top: 4.5rem;
+      overflow: hidden;
+      max-width: 100%
+    }
+
+    .main-img_item-2 {
+      position: absolute;
+      bottom: 0;
+      right: 0;
+      max-width: 100%
+    }
+
+    .info {
+      padding-top: 10rem;
+      padding-bottom: 7rem;
+      background-color: #f8f8f0
+    }
+
+    .info-block {
+      margin-top: 4.5rem;
+      font-size: 1.7rem
+    }
+
+    .info-block_item-2 {
+      max-width: 100%;
+      position: relative;
+      top: -6rem
+    }
+
+    .info-equipment {
+      position: relative;
+      margin-bottom: 4rem
+    }
+
+    .info-equipment_header {
+      font-size: 2rem;
+      font-family: 'HelveticaNeueCyr_bold', sans-serif
+    }
+
+    .info-equipment_item {
+      position: absolute;
+      bottom: 0
+    }
+
+    .info-equipment_item ul {
+      padding-left: 0;
+      padding-top: 2rem;
+      list-style: none;
+      margin-bottom: 0
+    }
+
+    .info-equipment_item ul li {
+      position: relative;
+      padding-left: 1.4rem
+    }
+
+    .info-equipment_item ul li:before {
+      content: '-';
+      position: absolute;
+      left: 0;
+      top: 50%;
+      -webkit-transform: translateY(-50%);
+      transform: translateY(-50%);
+      width: 3rem;
+      height: 3rem
+    }
+
+    .info-equipment_body {
+      min-height: 14rem
+    }
+
+    .info-equipment_price {
+      font-family: 'HelveticaNeueCyr_bold', sans-serif;
+      font-size: 2rem
+    }
+
+    .info-equipment_price .item_red {
+      color: red;
+      font-size: 2.5rem
+    }
+  </style>
+
+</head>
+<!--главное -->
+<body style="">
+  <div id="preloader" style="background: rgb(0, 0, 0) none repeat scroll 0% 0%; display: block;">
+    <div class="dws-progress-bar circular-progress-bar" style="height: 350px; width: 350px;">
+      <div class="progress-percentage">0%</div>
+      <div class="progress-text"></div><canvas height="350" width="350"></canvas>
+    </div>
+  </div>
+  <main class="main" data-type="background" data-speed="2">
+    <div class="main-header wow fadeIn" data-wow-delay="1s"
+      style="visibility: visible; animation-delay: 1s; animation-name: fadeIn;">
+      <div class="container">
+        <div class="row">
+          <div class="main-header-block">
+            <div class="col-lg-5 col-md-7 col-sm-8 col-xs-12">
+              <div class="main-header-logo">
+                <a href="#"><img src="./img/Logo.png" alt="VR 2"></a>
+                <h4>Производство и продажа VR очков. <br> Доставка по всей России. </h4>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-2 col-lg-offset-4">
+              <div class="main-header-contact">
+                +79104551703
+                <a href="#" class="popup-btn-2">Заказать звонок</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="main-wrapper">
+      <div class="container">
+        <div class="main-content">
+          <h1 class="main-title wow fadeInLeft" data-wow-delay="0.6s"
+            style="visibility: visible; animation-delay: 0.6s; animation-name: fadeInLeft;">
+            Очки виртуальной реальности <br> VR Box II от производителя за 2390 р!
+            <span>Бесплатная доставка по Москве! </span>
+          </h1>
+          <button class="button popup-btn wow fadeInRight" data-wow-delay="0.9s"
+            style="visibility: visible; animation-delay: 0.9s; animation-name: fadeInRight;">Заказать vr box 2</button>
+          <div class="main-img">
+            <img class="main-img_item-1 wow fadeInLeft" data-wow-delay="1s" src="./img/vr.png"
+              alt="Очки Виртуальной риальности"
+              style="visibility: visible; animation-delay: 1s; animation-name: fadeInLeft;">
+            <img class="main-img_item-2 wow fadeInRight" data-wow-delay="1s" src="./img/dino.png"
+              alt="Динозавр в телефоне" style="visibility: visible; animation-delay: 1s; animation-name: fadeInRight;">
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+<!--инфо -->
+  <section class="info">
+    <div class="container">
+      <h2 class="header wow fadeInLeft" data-wow-delay="0.3s"
+        style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInLeft;">
+        Что такое vr box 2
+      </h2>
+      <div class="info-block">
+        <div class="row">
+          <div class="col-sm-6">
+            <p class="info-block_item-1">Это специальное устройство, в которое
+              вставляется смартфон. Очки одеваются на голову и крепко фиксируются. С
+              их помощью вы можете целиком погрузиться в мир виртуальной реальности в
+              любом удобном для вас месте. С очками можно: смотреть 3D фильмы, играть в
+              игры, Смотреть любые видео с YouTube и многое другое!</p>
+          </div>
+          <div class="col-sm-6">
+            <img class="info-block_item-2 wow fadeInRight" data-wow-delay="0.4s" src="./img/set.png" alt="VR - box"
+              style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInRight;">
+          </div>
+        </div>
+        <div class="info-equipment">
+          <div class="row">
+            <div class="col-sm-5 col-md-4">
+              <div class="info-equipment_item wow fadeInUp" data-wow-delay="0.2s"
+                style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+                <h2 class="info-equipment_header">Комплектация 1:</h2>
+                <div class="info-equipment_body">
+                  <ul>
+                    <li>Очки VR Box 2 </li>
+                    <li>Ремешок для крепления на голову</li>
+                    <li>Ткань для очистки линз</li>
+                    <li>Инструкция</li>
+                  </ul>
+                </div>
+                <div class="info-equipment_price">
+                  Цена без пульта: <span class="item_red">2390 руб.</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-5 col-md-4">
+              <div class="info-equipment_item info-equipment_change wow fadeInUp" data-wow-delay="0.4s"
+                style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
+                <h2 class="info-equipment_header">Комплектация 2:</h2>
+                <div class="info-equipment_body">
+                  <ul>
+                    <li>Очки VR Box 2 </li>
+                    <li>Ремешок для крепления на голову</li>
+                    <li>Ткань для очистки линз</li>
+                    <li>Инструкция</li>
+                    <li><span class="item_bold">Пульт дистанционного управления</span></li>
+                  </ul>
+                </div>
+                <div class="info-equipment_price">
+                  Цена с пультом: <span class="item_red">2990 руб.</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button class="button button_change popup-btn">выбрать комплектацию и Заказать vr box 2 </button>
+      </div>
+    </div>
+  </section>
+<!-- возможности-->
+  <section class="capability">
+    <div class="container">
+      <div class="briliant-block">
+        <img class="rellax position-1" data-rellax-speed="-3" data-rellax-percentage="0.5" src="./img/crystal/1.png"
+          alt="brillian" style="transform: translate3d(0px, -308.5px, 0px);">
+        <img class="rellax position-2" data-rellax-speed="-3" data-rellax-percentage="0.5" src="./img/crystal/2.png"
+          alt="brillian-2" style="transform: translate3d(0px, -328.5px, 0px);">
+      </div>
+      <div class="capability-block">
+        <div class="row">
+          <div class="col-xs-9 col-xs-offset-1 col-sm-4 col-sm-offset-1">
+            <div class="capability-img">
+              <img src="./img/block-1.png" alt="Silver">
+            </div>
+          </div>
+          <div class="col-xs-10 col-xs-offset-2 col-sm-5 col-sm-offset-1">
+            <div class="capability-body wow fadeInLeft" style="visibility: hidden; animation-name: none;">
+              <h4 class="capability_header capability_header_icon-1">
+                Просмотр фильмов, сериалов <br>
+                и видео на Youtube
+              </h4>
+              <p class="capability_text">
+                В совершенно новом формате 3D, как перед <br>
+                6-ти метровым экраном! Также просмотр любых фильмов в формате 2D! </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="capability-block">
+        <div class="row">
+          <div class="col-xs-9 col-xs-offset-1">
+            <div class="capability-img mobile-enable">
+              <img src="./img/block-2.png" alt="car">
+
+            </div>
+          </div>
+          <div class="col-xs-10 col-xs-offset-2 col-sm-5 col-sm-offset-1">
+            <div class="capability-body wow fadeInRight" style="visibility: hidden; animation-name: none;">
+              <h4 class="capability_header capability_header_icon-2">
+                Путешествия по миру с помощью <br>
+                панорамного изображения!
+
+              </h4>
+              <p class="capability_text">
+                А также тест драйв автомобилей,<br>
+                погружение на дно океана, полеты в космос, <br>
+                виртуальный секс и многое другое.
+              </p>
+            </div>
+          </div>
+          <div class="col-sm-5">
+            <div class="capability-img mobile-disenable">
+              <img src="./img/block-2.png" alt="car2">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- Блок формы -->
+  <section class="central while">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-0 col-xs-offset-1 col-xs-10">
+          <div class="central-content">
+            <h2 class="header wow fadeInLeft" data-wow-delay="0.4s"
+              style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
+              Закажите VR BOX II <br>
+              прямо сейчас
+            </h2>
+            <div class="box-blue">
+              <div class="box-blue_text">Только мы сотрудничаем с производителем <br>
+                и осуществляем прямые поставки с производства
+              </div>
+            </div>
+            <div class="central-other">
+              <ul class="mobile-disenable">
+                <li>Принимаем заявки <br>
+                  24 часа в сутки! <br>
+                  7 дней в неделю!</li>
+                <li>Быстрая доставка и <br>
+                  оплата при получении</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2">
+          <div class="central-menu wow fadeInRight" data-wow-delay="0.2s"
+            style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+            <h4 class="popup-header">Введите ваши данные
+              <br> и нажмите заказать
+            </h4>
+            <div class="main-form popup-form">
+              <form class="form" name="form" action="mailer/smart.php" method="POST">
+                <input class="form-input" name="name" required="" placeholder="Введите имя">
+                <input class="form-input form-tel" name="phone" required="" placeholder="Введите телефон" maxlength="18"
+                  type="tel">
+                <button class="form-btn button button_change"
+                  onclick="yaCounter46492797.reachGoal('order'); return true;" type="submit">Заказать vr box 2</button>
+                <p class="form-text">Перезвоним в течение 10 минут</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="central-other mobile-enable central-other_change">
+        <ul>
+          <li>Принимаем заявки <br>
+            24 часа в сутки! <br>
+            7 дней в неделю!</li>
+          <li>Быстрая доставка и <br>
+            оплата при получении</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- изменение возможностей-->
+  <section class="capability capability_change">
+    <div class="container">
+      <div class="briliant-block">
+        <img class="rellax position-3" data-rellax-speed="-2" data-rellax-percentage="0.5" src="./img/crystal/4.png"
+          alt="brillian-3" style="transform: translate3d(0px, -414px, 0px);">
+        <img class="rellax position-4" data-rellax-speed="-2" data-rellax-percentage="0.5" src="./img/crystal/5.png"
+          alt="brillian-4" style="transform: translate3d(0px, -466.8px, 0px);">
+      </div>
+      <div class="capability-block mobile-disenable">
+        <div class="row">
+          <div class="col-sm-4 col-sm-offset-1">
+            <div class="capability-img">
+              <img src="./img/block-3.png" alt="tel+vr">
+            </div>
+
+          </div>
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="capability-body wow fadeInLeft" style="visibility: hidden; animation-name: none;">
+              <h4 class="capability_header capability_header_icon-3">
+                Симуляция экстремальных <br>
+                видов спорта
+              </h4>
+              <p class="capability_text">
+                Почувствуйте на себе эмоции от прыжка <br>
+                с парашютом или спуска на сноуборде <br>
+                со склона горы.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="capability-block capability-block_change mobile-disenable">
+        <div class="row">
+          <div class="col-sm-5 col-sm-offset-1">
+            <div class="capability-body wow fadeInRight" style="visibility: hidden; animation-name: none;">
+              <h4 class="capability_header capability_header_icon-4">
+                Играйте в игры с эффектом <br>
+                полного погружения!
+              </h4>
+              <p class="capability_text">
+                Полное погружение в игры на смартфоне, <br>
+                а так же на ПК через программу TRINUS. </p>
+            </div>
+          </div>
+          <div class="col-sm-5 ">
+            <div class="capability-img">
+              <img
+                src="./img/block-4.png"
+                alt="mac">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- как это работает-->
+  <section class="things">
+    <h2 class="header header_blue-line wow fadeInUp" data-wow-delay="0.3s"
+      style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">Как это работает</h2>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-2 col-xs-6">
+          <div class="things-block">
+            <div class="things-item"><img
+                src="./img/thing-1.png"
+                alt="thing-1">
+              <div class="border-circle">
+                <div class="circle">1</div>
+              </div>
+            </div>
+            <div class="things-text">
+              Скачай на смартфон <br>
+              приложения, игры, фильмы.
+
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-6">
+          <div class="things-block">
+            <div class="things-item"><img
+                src="./img/thing-2.png"
+                alt="thing-2">
+              <div class="border-circle">
+                <div class="circle">2</div>
+              </div>
+            </div>
+            <div class="things-text">
+              Вставь смартфон в очки
+              виртуальной реальности.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-2 col-xs-6">
+          <div class="things-block">
+            <div class="things-item"><img
+                src="./img/thing-3.png"
+                alt="thing-3">
+              <div class="border-circle">
+                <div class="circle">3</div>
+              </div>
+            </div>
+            <div class="things-text">
+              Наслаждайся абсолютно <br>
+              непередаваемыми эмоциями.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-md-offset-0 col-sm-4 col-sm-offset-1 col-xs-6">
+          <div class="things-block">
+            <div class="things-item"><img
+                src="./img/thing-4.png"
+                alt="thing-4">
+              <div class="border-circle">
+                <div class="circle">4</div>
+              </div>
+            </div>
+            <div class="things-text">
+              Управляй виртуальной <br>
+              реальностью bluetooth-пультом.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!-- совместимость очков-->
+  <section class="compatibility">
+    <div class="container">
+      <img class="rellax position-5" data-rellax-speed="-2" data-rellax-percentage="0.5"
+        src="./img/crystal/6.png"
+        alt="brillian-5" style="transform: translate3d(0px, -596.8px, 0px);">
+      <h2 class="header wow fadeInLeft" data-wow-delay="0.3s"
+        style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">Совместимость очков</h2>
+      <div class="row">
+        <div class="col-xs-10 col-xs-offset-1">
+          <div class="compatibility-block_2 mobile-enable wow fadeIn animated" data-wow-delay="0.2s"
+            style="visibility: visible; animation-delay: 0.2s; animation-name: fadeIn;">
+            <div class="compatibility-img_wrapper">
+              <img
+                src="./img/glasses.png"
+                alt="glasses2">
+
+            </div>
+            <div class="compatibility-text">
+              VR BOX-2 подойдет для любой модели смартфона с диагональю экрана от 3.5 до 6 люйдмов.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-sm-6 col-xs-12">
+          <div class="compatibility-wrapper">
+            <div class="col-md-4 col-xs-4">
+              <div class="compatibility-block wow fadeIn" data-wow-delay="0.2s"
+                style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+                <img class="compatibility-block_item"
+                  src="./img/phone/smart-1.png"
+                  alt="smartfon">
+                <div class="compatibility-name">
+                  ios
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+              <div class="compatibility-block wow fadeIn" data-wow-delay="0.4s"
+                style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
+                <img class="compatibility-block_item compatibility-block_item-2"
+                  src="./img/phone/smart-2.png"
+                  alt="smartfon-2">
+                <div class="compatibility-name">
+                  android
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4 col-xs-4">
+              <div class="compatibility-block wow fadeIn" data-wow-delay="0.6s"
+                style="visibility: hidden; animation-delay: 0.6s; animation-name: none;">
+                <img class="compatibility-block_item"
+                  src="./img/phone/smart-3.png"
+                  alt="smartfon">
+                <div class="compatibility-name">
+                  windows
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-7 col-sm-6">
+          <div class="compatibility-block_2 mobile-disenable wow fadeInRight" data-wow-delay="0.3s"
+            style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+            <div class="compatibility-img_wrapper">
+              <img
+                src="./img/glasses.png"
+                alt="glasses">
+            </div>
+            <div class="compatibility-text">
+              VR BOX-2 подойдет для любой модели смартфона <br>с диагональю экрана от 3.5 до 6 люйдмов.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--видео -->
+  <section class="video">
+    <div class="container">
+      <h2 class="header wow fadeInUp" data-wow-delay="0.3s"
+        style="visibility: hidden; animation-delay: 0.3s; animation-name: none;">
+        Виртуальная реальность <br>
+        в очках vr box
+      </h2>
+      <a class="mediabox" href="https://www.youtube-nocookie.com/embed/xc2TsRwqjds">
+        <div class="play_border">
+          <div class="play">
+            <img
+              src="./img/play.png"
+              alt="play">
+          </div>
+        </div>
+      </a>
+
+      <div class="video-cheack">Смотреть видео</div>
+    </div>
+  </section>
+<!-- приложения-->
+  <section class="application">
+    <div class="container">
+      <div class="header header_blue-line wow fadeInUp" data-wow-delay="0.2s"
+        style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">Более 100 игр и приложений для VR BOX
+        II</div>
+      <div class="icon-group"><img
+          src="./img/group.png"
+          alt="Иконки"></div>
+      <div class="row">
+        <div class="col-sm-4">
+          <div class="application-box">
+            <img
+              src="./img/mob1.png"
+              alt="mobile">
+          </div>
+          <div class="application-text">
+            <h4>Titans of Space</h4>
+            <p>Бесплатное приложение «Titans of Space» позволит вам совершить виртуальную поездку по нашей солнечной
+              системе. <br>При этом вы получите много интересной информации о небесных телах.
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-4">
+          <div class="application-box application-box_change">
+            <img
+              src="./img/mob2.png"
+              alt="mobile-2">
+          </div>
+          <div class="application-text">
+            <h4>Zombie Shooter</h4>
+            <p>Одна из популярных игр «Zombie Shooter VR»<br> В ней вы истребляете полчища зомби, исследуете темные
+              пещеры и заброшенные шахты.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-sm-4">
+          <div class="application-box">
+            <img
+              src="./img/mob3.png"
+              alt="mobile-3">
+          </div>
+          <div class="application-text">
+            <h4>Sisters</h4>
+            <p>Игра «Sisters» имеет форму интерактивного фильма ужасов для Android-устройств: <br>вы находитесь в
+              гостиной, где можете осмотреться. При этом вокруг вас происходят странные вещи.
+
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="wrapper_btn">
+        <button class="button popup-btn wow fadeInUp" data-wow-delay="0.2s"
+          style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">Заказать vr box 2</button>
+      </div>
+    </div>
+  </section>
+<!--отзывы -->
+  <section class="reviews">
+    <div class="container">
+      <h2 class="header header_blue-line wow fadeInUp" data-wow-delay="0.2s"
+        style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">Отзывы довольных клиентов</h2>
+
+      <div class="reviews-box">
+
+
+        <div class="row">
+          <div class="col-xs-12 col-sm-6">
+            <div class="reviews-block wow fadeInLeft" data-wow-delay="0.2s"
+              style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+              <div class="media">
+                <div class="col-xs-3 col-sm-4 media-box">
+                  <div class="media-object media-body_change">
+                    <img
+                      src="./img/rev.png"
+                      alt="отзыв">
+                  </div>
+                </div>
+                <div class="col-xs-8 col-sm-8 media-box">
+                  <div class="media-heading media-body_change">
+                    <div>Дмитрий Фомин, 39 лет<br>г.Санкт-Петербург
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <p class="reviews-text">Пришло очень быстро! Сами очки
+                  отличного качества, сразу же опробовал на Самсунг С6 эдж. Все отлично
+                  работает, смарт тянет хорошо. В ПлэйМаркет просто ищешь приложения с VR и
+                  все. Джойстик подключил по блютус. Качество отличное на мой взгляд!
+                  Виртуальная реальность - это круто!!!!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="reviews-block wow fadeInRight" data-wow-delay="0.2s"
+              style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+              <div class="media">
+                <div class="col-xs-3 col-sm-4 media-box">
+                  <div class="media-object media-body_change">
+                    <img
+                      src="./img/rev.png"
+                      alt="отзыв-2">
+                  </div>
+                </div>
+                <div class="col-xs-8 col-sm-8 media-box">
+                  <div class="media-heading media-body_change">
+                    <div>Дмитрий Фомин, 39 лет<br>г.Санкт-Петербург
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <p class="reviews-text">Пришло очень быстро! Сами очки
+                  отличного качества, сразу же опробовал на Самсунг С6 эдж. Все отлично
+                  работает, смарт тянет хорошо. В ПлэйМаркет просто ищешь приложения с VR и
+                  все. Джойстик подключил по блютус. Качество отличное на мой взгляд!
+                  Виртуальная реальность - это круто!!!!</p>
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-12 col-sm-6">
+            <div class="reviews-block wow fadeInLeft" data-wow-delay="0.4s"
+              style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
+              <div class="media">
+                <div class="col-xs-3 col-sm-4 media-box">
+                  <div class="media-object media-body_change">
+                    <img
+                      src="./img/rev.png"
+                      alt="отзыв-3">
+                  </div>
+                </div>
+                <div class="col-xs-8 col-sm-8 media-box">
+                  <div class="media-heading media-body_change">
+                    <div>Дмитрий Фомин, 39 лет<br>г.Санкт-Петербург
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <p class="reviews-text">Пришло очень быстро! Сами очки
+                  отличного качества, сразу же опробовал на Самсунг С6 эдж. Все отлично
+                  работает, смарт тянет хорошо. В ПлэйМаркет просто ищешь приложения с VR и
+                  все. Джойстик подключил по блютус. Качество отличное на мой взгляд!
+                  Виртуальная реальность - это круто!!!!</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-xs-12 col-sm-6">
+            <div class="reviews-block mobile-disenable wow fadeInRight" data-wow-delay="0.4s"
+              style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
+              <div class="media">
+                <div class="col-xs-3 col-sm-4 media-box">
+                  <div class="media-object media-body_change">
+                    <img
+                      src="./img/rev.png"
+                      alt="отзыв-4">
+                  </div>
+                </div>
+                <div class="col-xs-8 col-sm-8 media-box">
+                  <div class="media-heading media-body_change">
+                    <div>Дмитрий Фомин, 39 лет<br>г.Санкт-Петербург
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-12">
+                <p class="reviews-text">Пришло очень быстро! Сами очки
+                  отличного качества, сразу же опробовал на Самсунг С6 эдж. Все отлично
+                  работает, смарт тянет хорошо. В ПлэйМаркет просто ищешь приложения с VR и
+                  все. Джойстик подключил по блютус. Качество отличное на мой взгляд!
+                  Виртуальная реальность - это круто!!!!</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--как мы работаем -->
+  <section class="ourwork">
+    <div class="container">
+      <h2 class="header header_blue-line wow fadeInUp" data-wow-delay="0.4s"
+        style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">Как мы работаем</h2>
+      <div class="row">
+        <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-1">
+          <div class="ourwork-box">
+            <div class="ourwork-img">
+              <img
+                src="./img/items/1.png"
+                alt="Картинка">
+            </div>
+            <div class="ourwork-text">
+              1. Вы оставляете заявку <br>
+              на нашем сайте либо <br>
+              по телефону: <br> <strong>+79104551703</strong>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-5">
+          <div class="ourwork-box">
+            <div class="ourwork-img">
+              <img
+                src="./img/items/2.png"
+                alt="Картинка-2">
+            </div>
+            <div class="ourwork-text">
+              2.Мы связываемся с вами, <br>
+              подтверждаем ваш заказ.
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-md-offset-0 col-sm-5 col-sm-offset-1">
+          <div class="ourwork-box">
+            <div class="ourwork-img">
+              <img
+                src="./img/items/3.png"
+                alt="Картинка-3">
+            </div>
+            <div class="ourwork-text">
+              3.Мы организовываем доставку <br>
+              по всей России либо вы <br>забираете самовывозом. <br>
+              (возможно только в Москве)
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-5">
+          <div class="ourwork-box">
+            <div class="ourwork-img">
+              <img
+                src="./img/items/4.png"
+                alt="Картинка-4">
+            </div>
+            <div class="ourwork-text">
+              4.Вы оплачиваете заказ <br>
+              при получении.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+<!--закажите очки -->
+  <section class="central_2 while">
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-sm-offset-0 col-xs-offset-1 col-xs-10">
+          <div class="central-content">
+            <h2 class="header wow fadeInLeft" data-wow-delay="0.4s"
+              style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">
+              Закажите VR BOX II <br>
+              прямо сейчас
+            </h2>
+            <div class="box-blue">
+              <div class="box-blue_text">Только мы сотрудничаем с производителем <br>
+                и осуществляем прямые поставки с производства
+              </div>
+            </div>
+            <div class="central-other">
+              <ul class="mobile-disenable">
+                <li>Принимаем заявки <br>
+                  24 часа в сутки! <br>
+                  7 дней в неделю!</li>
+                <li>Быстрая доставка и <br>
+                  оплата при получении</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-xs-offset-1 col-xs-10 col-sm-5 col-sm-offset-1 col-lg-4 col-lg-offset-2">
+          <div class="central-menu wow fadeInRight" data-wow-delay="0.5s"
+            style="visibility: hidden; animation-delay: 0.5s; animation-name: none;">
+            <h4 class="popup-header">Введите ваши данные
+              <br> и нажмите заказать
+            </h4>
+            <div class="main-form popup-form">
+              <form class="form" name="form" action="mailer/smart.php" method="POST">
+                <input class="form-input" name="name" required="" placeholder="Введите имя">
+                <input class="form-input form-tel" name="phone" required="" placeholder="Введите телефон" maxlength="18"
+                  type="tel">
+                <button class="form-btn button button_change"
+                  onclick="yaCounter46492797.reachGoal('order'); return true;" type="submit">Заказать vr box 2</button>
+                <p class="form-text">Перезвоним в течение 10 минут</p>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="central-other mobile-enable central-other_change">
+        <ul>
+          <li>Принимаем заявки <br>
+            24 часа в сутки! <br>
+            7 дней в неделю!</li>
+          <li>Быстрая доставка и <br>
+            оплата при получении</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+<!-- вопросы-->
+  <section class="questions">
+    <div class="container">
+      <h2 class="header wow fadeInUp" data-wow-delay="0.2s"
+        style="visibility: hidden; animation-delay: 0.2s; animation-name: none;">
+        Остались вопросы?
+      </h2>
+      <p>
+        <a href="#" class="popup-btn-3 questions-link wow fadeInUp" data-wow-delay="0.4s"
+          style="visibility: hidden; animation-delay: 0.4s; animation-name: none;">Задайте их нашему менеджеру</a>
+      </p>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="main-header main-header_2">
+      <div class="container">
+        <div class="row">
+          <div class="main-header-block">
+            <div class="col-lg-5 col-md-7 col-sm-8 col-xs-12">
+              <div class="main-header-logo main-header-logo_2">
+                <a href="#"><img
+                    src="./img/Logo.png"
+                    alt="VR 2"></a>
+                <h4>Производство и продажа VR очков. <br> Доставка по всей России. </h4>
+              </div>
+            </div>
+            <div class="col-xs-12 col-sm-4 col-sm-offset-0 col-md-3 col-md-offset-2 col-lg-offset-4">
+              <div class="main-header-contact mobile-enable">
+                <a href="#" class="popup-btn-2 footer-link">Заказать звонок</a>
+              </div>
+              <div class="main-header-contact footer-tel">
+                +79104551703
+                <div class="mobile-disenable">
+                  <a href="#" class="popup-btn-2 mobile-disenable">Заказать звонок</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Выплывающая форма -->
+  <div class="popup popup-1">
+    <div class="popup-dialog">
+      <div class="popup-content">
+        <button class="popup-close"><span>×</span></button>
+        <h4 class="popup-header">Введите ваши данные
+          <br> и нажмите заказать
+        </h4>
+        <div class="main-form popup-form">
+          <form class="form" name="form" action="#" method="POST">
+            <input class="form-input" name="name" required placeholder="Введите имя" type="text">
+            <input class="form-input form-tel" name="phone" required placeholder="Введите телефон" maxlength="18" type="tel">
+            <select name="have" id="have" class="form-input form-select">
+              <option value="have1" selected="selected">С Bluetooch пультом</option>
+              <option value="have2">-</option>
+            </select>
+
+            <button class="form-btn button btn" onclick="return false;" type="submit">Заказать vr box 2</button>
+            <p class="form-text">Перезвоним в течение 10 минут</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup popup-2">
+    <div class="popup-dialog">
+      <div class="popup-content">
+        <button class="popup-close"><span>×</span></button>
+        <h4 class="popup-header">Введите ваши данные
+          <br> и нажмите заказать звонок
+        </h4>
+        <div class="main-form popup-form">
+          <form class="form" name="form" action="#" method="POST">
+            <input class="form-input" name="name" required="" placeholder="Введите имя" type="text">
+            <input class="form-input form-tel" name="phone" required placeholder="Введите телефон" maxlength="18" type="tel">
+            <button class="form-btn button btn" onclick="return false;" type="submit">заказать звонок</button>
+            <p class="form-text">Перезвоним в течение 10 минут</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup popup-3">
+    <div class="popup-dialog">
+      <div class="popup-content">
+        <button class="popup-close"><span>×</span></button>
+        <h4 class="popup-header">Оставьте заявку <br>
+          мы свяжемся с вами и <br>ответим на все вопросы
+        </h4>
+        <div class="main-form popup-form">
+          <form class="form" name="form" action="#" method="POST">
+            <input class="form-input" name="name" required placeholder="Введите имя" type="text">
+            <input class="form-input form-tel" name="phone" required placeholder="Введите телефон" maxlength="18" type="tel">
+            <button class="form-btn button btn" onclick="return false;" type="submit">оставить заявку</button>
+            <p class="form-text">Перезвоним в течение 10 минут</p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <link rel="stylesheet" href="./css/bootstrap.css">
+  <link rel="stylesheet" href="./css/style.css">
+  <link href="./css/mediabox.css" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="./css/animate.css">
+  <script src="./js/wow.js"></script>
+
+  <script src="./js/relax.js"></script>
+  <script src="./js/jquery.js"></script>
+  <script src="./js/mediabox.js"></script>
+
+  <script src="./js/main.js"></script>
+
+
+</body>
+
+</html>
